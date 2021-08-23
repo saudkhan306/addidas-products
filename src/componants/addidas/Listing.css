@@ -1,0 +1,66 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.cardSection {
+    position: relative;
+    width: 100%;
+    min-height: 100vh;
+}
+.cardSection .container { width: 1550px; }
+.cardContainer {
+    position: relative;
+    width: calc(1550px / 4);
+    height: 475px;
+    transition: all 0.2s ease-in;
+    border: 1px solid transparent;
+}
+.cardContainer:hover {border-color:#333;}
+.priceLabel {
+    position: absolute;
+    bottom: 0;
+    background-color: #fff;
+    padding: 3px 10px;
+    font-weight: 500;
+    left: 10px;
+    display: block;
+    z-index: 1;
+}
+.wishlistButton {
+    position: absolute;
+    top: .5rem;
+    right: .5rem;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1;
+    cursor: pointer;
+}
+.wishlistButton i {transform: scale(1.0); font-size: 1.3rem;}
+.wishlistButton.active {animation: scaleAnime 1s ease-in;}
+@keyframes scaleAnime  {  50% {transform: scale(1.5);} }
+
+.imageBlock {
+    position: relative;
+    width: 100%;
+    height: 324px;
+    background-color: #eceff0; 
+}
+.p_textBlock {
+    position: relative;
+    width: 100%;
+    padding: 10px;
+}
+.sizesBlock {
+    position: relative;
+    margin-left: -10px;
+    margin-top: -10px;
+    width: calc(100% + 20px);
+    height: 50px;
+    background-color: #ccc;
+    margin-bottom: 10px;
+}
