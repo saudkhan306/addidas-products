@@ -26,7 +26,9 @@ function Card({data}) {
             </div>
             <div className="d-flex flex-column justify-content-between" style={{minHeight: "127px"}}>
                 <div className="topBlock">
-                    <div className="p_name mb-2">{data.productName}</div>
+                    <Link to={`products:?${data.productId}`}>
+                        <div className="p_name mb-2 text-black">{data.productName}</div>
+                    </Link>
                     <div className="p_category">Brand: {data.brand}</div>
                 </div>
                 <div className="bottomBlock d-flex justify-content-between align-items-center">
