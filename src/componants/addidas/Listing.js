@@ -7,6 +7,8 @@ import Card from './Card';
 function Listing() {
     const [cards, setcards] = useState(addidasData.slice(0, 12));
     const [classActive, setClassActive] = useState(false);
+    const [cart, setCart] = useState([])
+    
 
     return <div className="cardSection p-5">
         <div className="container">

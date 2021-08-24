@@ -3,25 +3,32 @@ import { Link, useParams } from 'react-router-dom';
 function Card({data}) {
     const [classActive, setClassActive] = useState(false);
     const {productFullID} = useParams();
+    const [imageIndex, setImageIndex] = useState(0)
     const toggleActive = (e) => {
         const id = e.target.id;
         console.log(id);
         setClassActive(!classActive)
     };
+    const handleSetImageIndex = (index) => {
+        setImageIndex(index)
+    } 
     return <div className="cardContainer">
         <span className={classActive ? "wishlistButton active" : "wishlistButton"} onClick={(e) => toggleActive(e)}>
             <i id={data.productId} className={ classActive ? "fas fa-heart" : "far fa-heart"}></i>
         </span>
         <div className="imageBlock">
-            <span className="listingPrice">{"$" + data.listingPrice}</span>
+            <span className="listingPrice">
+                Actual Price: <span>{"$" + data.listingPrice}</span>
+            </span>
             <span className="priceLabel">{"$" + data.salePrice}</span>
             <span className="discountLabel">{data.discount + "%"}</span>
-            <Link to={`products:?${data.productId}`}><img src={data.images[0]} alt="" /></Link>
+            <Link to={`products:?${data.productId}`}><img src={data.images[imageIndex]} alt="" /></Link>
         </div>
         <div className="p_textBlock">
             <div className="sizesBlock" style={{display: "block"}}>
                 <ul className="subImages"> 
-                    {data.images.map((image, index) => <li key={index}><img src={image} alt="" /></li> )}
+                    {data.images.map((image, index) => 
+                    <li className={imageIndex==index?'active':""} key={index}><img src={image} onMouseOver={()=> handleSetImageIndex(index)} alt="" /></li> )}
                 </ul>
             </div>
             <div className="d-flex flex-column justify-content-between" style={{minHeight: "127px"}}>

@@ -14,6 +14,9 @@
     overflow: hidden;
     margin-bottom: 20px;
 }
+@media (max-width: 1440px) {
+    .cardContainer { width: 33.333%; }
+}
 .cardContainer:hover {border-color:#333;}
 .priceLabel, .listingPrice {
     position: absolute;
@@ -23,12 +26,9 @@
     display: block;
     z-index: 1;
 }
-.listingPrice {
-    left: 10px;
-    color: red;
-    opacity: .6;
-    text-decoration: line-through;
-}
+.listingPrice { left: 10px; }
+.listingPrice span {text-decoration: line-through; opacity: .6; color: red; margin-left: 5px;}
+
 .priceLabel {font-size: 1.3rem; background-color: #f1f1f1;font-weight: 500;}
 .discountLabel {
     position: absolute;

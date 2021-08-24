@@ -6,12 +6,12 @@ import { Route, Switch } from 'react-router-dom';
 
 function App() {
   return <>
-      {/* <header className="bg-dark py-3 text-white text-center">Welcome to Addidas Products</header> */}
+      <header className="bg-dark py-3 text-white text-center">Welcome to Addidas Products</header>
       <Switch> 
         <Route exact path="/" component={Listing} />
         <Route exact path="/products:id" component={ProductDetail} />
       </Switch>
-      {/* <footer className="bg-dark py-3 text-center">Welcome to Addidas Products</footer> */}
+      <footer className="bg-dark py-3 text-center text-white">Footer</footer>
   </>
 }
 
