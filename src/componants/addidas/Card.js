@@ -1,20 +1,43 @@
 import React, { useState } from 'react'
-function Card() {
+import { Link, useParams } from 'react-router-dom';
+function Card({data}) {
     const [classActive, setClassActive] = useState(false);
-    const toggleActive = () => setClassActive(!classActive);
+    const {productFullID} = useParams();
+    const toggleActive = (e) => {
+        const id = e.target.id;
+        console.log(id);
+        setClassActive(!classActive)
+    };
     return <div className="cardContainer">
-        <span className={classActive ? "wishlistButton active" : "wishlistButton"} onClick={() => toggleActive()}>
-            <i className={ classActive ? "fas fa-heart" : "far fa-heart"}></i>
+        <span className={classActive ? "wishlistButton active" : "wishlistButton"} onClick={(e) => toggleActive(e)}>
+            <i id={data.productId} className={ classActive ? "fas fa-heart" : "far fa-heart"}></i>
         </span>
         <div className="imageBlock">
-            <span className="priceLabel">$535.300</span>
+            <span className="listingPrice">{"$" + data.listingPrice}</span>
+            <span className="priceLabel">{"$" + data.salePrice}</span>
+            <span className="discountLabel">{data.discount + "%"}</span>
+            <Link to={`products:?${data.productId}`}><img src={data.images[0]} alt="" /></Link>
         </div>
         <div className="p_textBlock">
-            <div className="sizesBlock" style={{display: "none"}}>
+            <div className="sizesBlock" style={{display: "block"}}>
+                <ul className="subImages"> 
+                    {data.images.map((image, index) => <li key={index}><img src={image} alt="" /></li> )}
+                </ul>
             </div>
-            <div className="p_name">NMD_R1 shoe</div>
-            <div className="p_category">Originals</div>
-            <div className="p_colors">34 Colors, Exclusive</div>
+            <div className="d-flex flex-column justify-content-between" style={{minHeight: "127px"}}>
+                <div className="topBlock">
+                    <div className="p_name mb-2">{data.productName}</div>
+                    <div className="p_category">Brand: {data.brand}</div>
+                </div>
+                <div className="bottomBlock d-flex justify-content-between align-items-center">
+                    <a href={data.URL} target="_blank" className="btn btn-dark btn-sm px-3 btn-outline-hover">Order Now</a>
+                    <div className="d-flex align-items-center" style={{fontSize: "14px"}}>
+                        <p className="mr-3 mb-0"><i className="fas fa-star text-warning"></i> <strong>{data.rating}</strong></p>
+                        <span>&nbsp;&nbsp;|&nbsp;&nbsp;</span>
+                        <p className="mr-3 mb-0"><i className="fas fa-comment-alt text-secondary"></i> <strong>{data.reviews}</strong></p>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
 }

@@ -1,4 +1,4 @@
-[
+export const addidasData = [
   {
     "URL": "https://shop.adidas.co.in/#!product/AH2430_nmd_racerpkw",
     "productName": "Women's adidas Originals NMD_Racer Primeknit Shoes",

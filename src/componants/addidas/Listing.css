@@ -1,8 +1,3 @@
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
 
 .cardSection {
     position: relative;
@@ -12,21 +7,41 @@
 .cardSection .container { width: 1550px; }
 .cardContainer {
     position: relative;
-    width: calc(1550px / 4);
-    height: 475px;
+    width: 25%;
+    min-height: 475px;
     transition: all 0.2s ease-in;
     border: 1px solid transparent;
+    overflow: hidden;
+    margin-bottom: 20px;
 }
 .cardContainer:hover {border-color:#333;}
-.priceLabel {
+.priceLabel, .listingPrice {
     position: absolute;
-    bottom: 0;
-    background-color: #fff;
-    padding: 3px 10px;
-    font-weight: 500;
-    left: 10px;
+    bottom: 10px;
+    right: 10px;
+    padding: 2px 10px;
     display: block;
     z-index: 1;
+}
+.listingPrice {
+    left: 10px;
+    color: red;
+    opacity: .6;
+    text-decoration: line-through;
+}
+.priceLabel {font-size: 1.3rem; background-color: #f1f1f1;font-weight: 500;}
+.discountLabel {
+    position: absolute;
+    top: -.55rem;
+    left: -2.3rem;
+    width: 6rem;
+    background-color: black;
+    padding: 1.3rem 2rem 0;
+    transform: rotate(-45deg);
+    font-weight: 700;
+    /* font-size: .9rem; */
+    text-align: center;
+    color: white;
 }
 .wishlistButton {
     position: absolute;
@@ -47,8 +62,15 @@
 .imageBlock {
     position: relative;
     width: 100%;
-    height: 324px;
+    height: 322px;
     background-color: #eceff0; 
+    border: 1px solid #f1f1f1;
+}
+.imageBlock img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+
 }
 .p_textBlock {
     position: relative;
@@ -60,7 +82,54 @@
     margin-left: -10px;
     margin-top: -10px;
     width: calc(100% + 20px);
-    height: 50px;
-    background-color: #ccc;
+    height: 53px;
+    background-color: #fff;
     margin-bottom: 10px;
 }
+.p_name {font-weight: 500;}
+.subImages {
+    position: relative;
+    width: 100%;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    border: 1px solid #f1f1f1;
+    border-top: 0;
+    overflow-x: scroll;
+}
+.subImages::-webkit-scrollbar { width: 5px; height: 3px; }
+.subImages::-webkit-scrollbar-track { border-radius: 10px;}
+.subImages::-webkit-scrollbar-thumb { background: black; }
+   
+
+  
+.subImages li {
+    width: 50px;
+    height: 50px;
+    padding: .2rem;
+    display: flex;
+    flex-shrink: 0;
+    justify-content: center;
+    align-content: inherit;
+    cursor: pointer;
+    border: 1px solid transparent;
+    border-right-color: #f1f1f1;
+    transition: all 0.3s ease;
+}
+.subImages li:hover, 
+.subImages li:hover:first-child,
+.subImages li.active, 
+.subImages li.active:first-child {
+    border-color: black; 
+    border-left-color: black;
+}
+.subImages li:first-child {border-left-color: #f1f1f1;}
+.subImages li img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+
+
