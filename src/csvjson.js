@@ -8,7 +8,7 @@ export const addidasData = [
     "discount": 50,
     "brand": "ORIGINALS",
     "description": "Channeling the streamlined look of an '80s racer, these shoes are updated with modern features. The foot-hugging adidas Primeknit upper offers a soft, breathable feel. The Boost midsole provides responsive comfort accented with a contrast-color EVA heel plug. Embroidered details add a distinctive finish.",
-    "rating": 0,
+    "rating": 5,
     "reviews": 0,
     "images": [
       "https://content.adidas.co.in/static/Product-AH2430/WOMEN_Originals_SHOES_LOW_AH2430_1.jpg",
@@ -29,7 +29,7 @@ export const addidasData = [
     "discount": 50,
     "brand": "ORIGINALS",
     "description": "A modern take on adidas sport heritage, tailored just for women. Perforated 3-Stripes on the leather upper of these shoes offer a sleek look that mirrors iconic tennis styles.",
-    "rating": 0,
+    "rating": 2,
     "reviews": 0,
     "images": [
       "https://content.adidas.co.in/static/Product-G27341/WOMEN_Originals_SHOES_LOW_G27341_1.jpg",
@@ -50,7 +50,7 @@ export const addidasData = [
     "discount": 40,
     "brand": "CORE / NEO",
     "description": "These adidas Puka slippers for women's come with slim straps for a great fit. Feature performance logo on the footbed and textured Rubber outsole that gives unique comfort.",
-    "rating": 0,
+    "rating": 3,
     "reviews": 0,
     "images": [
       "https://content.adidas.co.in/static/Product-CM0081/Men_SWIM_SLIDES_CM0081_1.jpg",
@@ -71,7 +71,7 @@ export const addidasData = [
     "discount": 50,
     "brand": "CORE / NEO",
     "description": "Inspired by modern tech runners, these women's shoes step out with unexpected style. They're built with a breathable knit upper, while the heel offers the extra support of an Achilles-hugging design. The cushioned midsole provides a soft landing with every stride.",
-    "rating": 0,
+    "rating": 4,
     "reviews": 0,
     "images": [
       "https://content.adidas.co.in/static/Product-B44832/Women_CORE_RUNNING_SHOES_LOW_B44832_1.jpg",
@@ -92,7 +92,7 @@ export const addidasData = [
     "discount": 50,
     "brand": "ORIGINALS",
     "description": "This design is inspired by vintage Taekwondo styles originally worn to perfect high kicks and rapid foot strikes. The canvas shoes make a streetwear fashion statement as a chic, foot-hugging slip-on. They're shaped for a narrow, women's-specific fit and ride on a soft gum rubber outsole.",
-    "rating": 0,
+    "rating": 1,
     "reviews": 0,
     "images": [
       "https://content.adidas.co.in/static/Product-D98205/WOMEN_Originals_SHOES_LOW_D98205_1.jpg",

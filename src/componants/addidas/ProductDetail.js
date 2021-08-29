@@ -1,11 +1,21 @@
 import React, { useState } from 'react'
+import { useParams } from 'react-router-dom';
 import { addidasData } from '../../csvjson'
 import './/ProductDetail.css'
 
-
 function ProductDetail() {
-    const [cardData, setCardData] = useState(addidasData[0]);
+    const {id} = useParams();
+    console.log(id)
+    const cardDetailsData = addidasData.find(prod => prod.productId === id);
+    console.log('cardDetailsData',cardDetailsData)
+    const [cardData, setCardData] = useState(cardDetailsData);
+    const [ratings, setRatings] = useState([cardData?.rating[0]]);
+    
     const [imageIndex, setImageIndex] = useState(0);
+    const imageIndexHandler = (index) => setImageIndex(index);
+
+    const [classActive, setClassActive] = useState(false);
+    const toggleActive = (e) => setClassActive(!classActive);
     return <div className="cardDetailSection p-5">
         <div className="container">
             <div className="cardDetailContainer">
@@ -13,11 +23,9 @@ function ProductDetail() {
                     <div className="col-7">
                         <div className="cardImages d-flex">
                             <ul className="shortThumbnail">
-                                {
-                                    cardData.images.map((image, index) => {
-                                        return <li key={index}><img src={image} alt="" /></li>
-                                    })
-                                }
+                                { cardData.images.map((image, index) => 
+                                    <li key={index} className={ imageIndex == index ? "active" : ""}><img src={image} alt="" onClick={()=> imageIndexHandler(index)} /></li>
+                                )}
                             </ul>
                             <div className="bigThumbnail">
                                 <span className="discountLabel2">{cardData.discount + "%"}</span>
@@ -28,14 +36,14 @@ function ProductDetail() {
                     <div className="col-5">
                         <div className="productDetail">
                             <div className="_header d-flex justify-content-between align-items-center mb-2">
-                                <p className="mb-0">Product ID:</p>
-                                <span className="wishlistButton2">
-                                    <i className="far fa-heart"></i>
+                                <p className="mb-0">Product ID: <strong>{cardData.productId}</strong></p>
+                                <span className={classActive ? "wishlistButton2 active" : "wishlistButton2"} onClick={()=>toggleActive()}>
+                                    <i className={classActive ? "fas fa-heart" : "far fa-heart"}></i>
                                 </span>
                             </div>
-                            <h2>Heading</h2>
-                            <p className="mb-1">Price:</p>
-                            <h5>Offer Price:</h5>
+                            <h2>{cardData.productName}</h2>
+                            <p className="mb-1">Actual Price: <span className="line-through">{cardData.listingPrice}</span></p>
+                            <h5>Offer Price: {cardData.salePrice}</h5>
                             <div className="ratings d-flex my-3">
                                 <div className="btn btn-outline-dark btn-sm pe-2 me-2">
                                     <span className="me-2">Rating:</span> 
@@ -48,9 +56,7 @@ function ProductDetail() {
                                     <strong>50</strong>
                                 </div>
                             </div>
-                            <p className="mb-4">
-                                Channeling the streamlined look of an '80s racer, these shoes are updated with modern features. The foot-hugging adidas Primeknit upper offers a soft, breathable feel. The Boost midsole provides responsive comfort accented with a contrast-color EVA heel plug. Embroidered details add a distinctive finish.
-                            </p>
+                            <p className="mb-4">{cardData.description}</p>
                             <div className="btn btn-dark text-white text-uppercase px-4 btn-lg"> 
                                 <strong>Add To Cart</strong> 
                             </div>
